@@ -1,0 +1,14 @@
+{
+  "name": "node-auth-postgres",
+  "description": "Postgres session store implementation.",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Aidan Loughran",
+  "repository": "github:Defunk-t/node-auth-postgres",
+  "main": "index.js",
+  "dependencies": {
+    "connect-pg-simple": "7.0.0",
+    "express-session": "1.17.2",
+    "pg": "8.7.1"
+  }
+}
