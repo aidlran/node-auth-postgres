@@ -13,7 +13,7 @@ module.exports = session({
 	resave: false,
 	saveUninitialized: false,
 	cookie: {
-		maxAge: 1000 * 60 * 60 * 24, // 1 day
+		maxAge: process.env.SESSION_MAX_AGE ? Number(process.env.SESSION_MAX_AGE) : 1000 * 60 * 60 * 24, // 1 day
 		httpOnly: true,
 		secure: true
 	}
