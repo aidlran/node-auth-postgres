@@ -2,7 +2,7 @@ const session = require('express-session');
 const pgSessionStore = require('connect-pg-simple');
 const PG = require('pg');
 
-module.exports = session({
+const sessionMiddleware = session({
 	secret: process.env.SESSION_SECRET,
 	name: 'sid',
 	store: new (pgSessionStore(session))({
@@ -18,3 +18,9 @@ module.exports = session({
 		secure: true
 	}
 });
+
+module.exports.load = sessionMiddleware;
+
+module.exports.save = (req, res, next) =>
+	sessionMiddleware(req, res, () =>
+		req.session.save(next));
